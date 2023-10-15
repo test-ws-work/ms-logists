@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { LogistEntity } from '../entities/logist.entity';
 import { LogistDtoRequest } from '../dto/requests/logist-request.dto';
+import { LogistUpdateDtoRequest } from '../dto/requests/logist-update-request.dto';
 
 @Injectable()
 export class LogistsRepository {
@@ -25,7 +26,10 @@ export class LogistsRepository {
     return logist;
   }
 
-  async update(logistId: number, dto: LogistDtoRequest): Promise<LogistEntity> {
+  async update(
+    logistId: number,
+    dto: LogistUpdateDtoRequest,
+  ): Promise<LogistEntity> {
     const logist = await this.prisma.logist.update({
       data: dto,
       where: {

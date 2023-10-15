@@ -4,6 +4,7 @@ import { LogistDtoRequest } from '../dto/requests/logist-request.dto';
 import { LogistsRepository } from '../repositories/logist.repository';
 import { CustomerTypeEnum } from '../common/enums/customer.enum';
 import { LogistDtoResponse } from '../dto/responses/logist-response.dto';
+import { LogistUpdateDtoRequest } from '../dto/requests/logist-update-request.dto';
 
 @Injectable()
 export class LogistsService {
@@ -45,13 +46,13 @@ export class LogistsService {
 
   async update(
     id: number,
-    request: LogistDtoRequest,
+    request: LogistUpdateDtoRequest,
   ): Promise<LogistDtoResponse> {
     const saltOrRounds = 10;
     const password = request.password;
     const hashPass = bcrypt.hashSync(password, saltOrRounds);
 
-    const data: LogistDtoRequest = {
+    const data: LogistUpdateDtoRequest = {
       ...request,
       password: hashPass,
     };

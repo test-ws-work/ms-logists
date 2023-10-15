@@ -15,6 +15,7 @@ import { ApiResponse, ApiTags } from '@nestjs/swagger';
 import { LogistDtoResponse } from '../dto/responses/logist-response.dto';
 import { LogistEntity } from '../entities/logist.entity';
 import { LogistLoginDtoRequest } from '../dto/requests/logist-login-request.dto';
+import { LogistUpdateDtoRequest } from '../dto/requests/logist-update-request.dto';
 
 @ApiTags('ms-logists')
 @Controller('api/v1/logists')
@@ -53,8 +54,9 @@ export class LogistsController {
   @Patch(':logistId')
   async update(
     @Param('logistId') logistId: string,
-    @Body() updateLogistDto: LogistDtoRequest,
+    @Body() updateLogistDto: LogistUpdateDtoRequest,
   ): Promise<LogistEntity> {
+    console.log(logistId);
     return this.logistsService.update(+logistId, updateLogistDto);
   }
 
