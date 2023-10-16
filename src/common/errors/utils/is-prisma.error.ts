@@ -1,6 +1,6 @@
-import { PrismaclientError } from '../prisma.client.error';
+import { PrismaClientError } from '../prisma.client.error';
 
-export const isPrismaError = (e: PrismaclientError) => {
+export const isPrismaError = (e: PrismaClientError) => {
   return (
     typeof e.code === 'string' &&
     typeof e.clientVersion === 'string' &&
