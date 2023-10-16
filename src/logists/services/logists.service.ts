@@ -2,7 +2,7 @@ import { BadRequestException, Injectable, Logger } from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
 import { LogistDtoRequest } from '../dto/requests/logist-request.dto';
 import { LogistsRepository } from '../repositories/logist.repository';
-import { CustomerTypeEnum } from '../common/enums/customer.enum';
+import { CustomerTypeEnum } from '../../common/enums/customer.enum';
 import { LogistDtoResponse } from '../dto/responses/logist-response.dto';
 import { LogistUpdateDtoRequest } from '../dto/requests/logist-update-request.dto';
 
